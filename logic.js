@@ -377,12 +377,16 @@ sl = {
 			sl.util.switchPage("doencryption", "just_logout_success");
 		},
 		toggleEye : function(){
-			jQuery(".eye_icon_visible").toggle();
-			jQuery(".eye_icon_hidden").toggle();
+			//jQuery(".eye_icon_visible").toggle();
+			//jQuery(".eye_icon_hidden").toggle();
 			if(jQuery(".password_input").attr("type") == "password"){
+				jQuery(".eye_icon_visible").fadeTo(1, "1");
+				jQuery(".eye_icon_hidden").fadeTo(1, "0");
 				jQuery(".password_input").attr("type","text");
 			}
 			else{
+				jQuery(".eye_icon_visible").fadeTo(1, "0");
+				jQuery(".eye_icon_hidden").fadeTo(1, "1");
 				jQuery(".password_input").attr("type","password");
 			}
 		}
