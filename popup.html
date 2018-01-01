@@ -1,0 +1,409 @@
+<html>
+<head>
+	<style>
+		body{
+			width:330px;
+			height:480px;
+		}
+		.help{
+			right: 3%;
+			cursor: pointer;
+			position: absolute;
+		}
+		.page_doencryption .save_login_details_and_logout{
+			margin: auto;
+			width: 82%;
+			align-items: center;
+		}
+		.page_doencryption .save_login_details_and_logout .label{
+			font-size: 134%;
+			text-align: center;
+		}
+		.page_doencryption .password_set .password{
+			width: 93%;
+			padding-top: 6%;
+			align-items: center;
+			padding-left: 4%;
+		}
+		.page_doencryption .password_set .password_input{
+		    border: 0;
+		    outline: 0;
+		    background: transparent;
+		    border-bottom: 1px solid #9E9E9E;
+		    width: 81%;
+		}
+		.page_doencryption .password_set .ok{
+		    left: 1.5%;
+		    position: relative;
+		}
+		.page_doencryption .password_set .ok_input{
+		    border: 2px solid #0a6175;
+			background-color: #0b6c82;
+		    color: white;
+		    border-radius: 3px;
+		    cursor: pointer;
+		    width: 13%;
+		    font-size: 125%;
+		}
+		.page_doencryption .password_set .eye_icon_visible, .page_doencryption .password_set .eye_icon_hidden{
+		    z-index: 100;
+		    position: absolute;
+		    left: 68%;
+		    padding-top: 0.3%;
+		    top: 12%;
+		}
+		.page_doencryption{
+			position: absolute;
+			top: 20%;
+		        width: 100%;
+		}
+		.page_doencryption .or_just{
+		    padding-top: 23%;
+		    font-size: 11px;
+		    position: absolute;
+		    width: 95.5%;
+		}
+		.page_doencryption .or_just span{
+		    left: 49%;
+		    position: absolute;
+		    top: 125.5%;
+			color: #888;
+		}
+		.page_doencryption .logout_all{
+			border: 2px solid #0a6175;
+			background-color: #0b6c82;
+			color: white;
+			border-radius: 3px;
+			font-size: 140%;
+			cursor: pointer;
+			padding-left: 5%;
+			padding-right: 5%;
+		    	padding-top: 1%;
+		    	padding-bottom: 1%;
+		}
+		.page_doencryption .logout_all:hover ,.page_doencryption .password_set .ok_input:hover{
+			border-color: 2px solid #055061;
+			background-color: #045669;
+		}
+		.page_doencryption .password_set .eye_icon_visible:hover, .page_doencryption .password_set .eye_icon_hidden:hover{
+			cursor: pointer
+		}
+		.page_doencryption .left_hr{
+		    border-bottom: 1px solid rgba(0, 0, 0, 0.21);
+		    width: 48%;
+		    position: absolute;
+		    top: 134%;
+		}
+		.page_doencryption .right_hr{
+		    border-bottom: 1px solid rgba(0, 0, 0, 0.21);
+		    width: 46.5%;
+		    position: absolute;
+		    top: 134%;
+		    left: 54%;
+		}
+		.page_doencryption .logout_button{
+		    padding-top: 59%;
+		    padding-left: 26%;
+		}
+		.page_encryption_success .done{
+		    padding-left: 42%;
+		    padding-top: 27%;
+		}
+		.page_encryption_success .done_label{
+			padding-left: 44%;
+          	        padding-top: 4%;
+		        font-size: 184%;
+		}
+		.page_encryption_success .done_info{
+		   color: #888;
+		    font-style: italic;
+		    padding-top: 12%;
+		    padding-left: 3%;
+		    padding-right: 3%;
+		    font-size: 111%;
+		    text-align: justify;
+		}
+		.page_decryption_success .done{
+		    padding-left: 42%;
+		    padding-top: 27%;
+		}
+		.page_decryption_success .done_label{
+			padding-left: 44%;
+          	        padding-top: 4%;
+		        font-size: 184%;
+		}
+		.page_decryption_success .done_info{
+		   color: #888;
+		    font-style: italic;
+		    padding-top: 12%;
+		    padding-left: 3%;
+		    padding-right: 3%;
+		    font-size: 111%;
+		    text-align: justify;
+		}
+		.page_delete_storage_success .done{
+		    padding-left: 42%;
+		    padding-top: 27%;
+		}
+		.page_delete_storage_success .done_label{
+			padding-left: 39%;
+		    padding-top: 4%;
+		    font-size: 184%;
+		}
+		.page_delete_storage_success .done_info{
+		   color: #888;
+		    font-style: italic;
+		    padding-top: 12%;
+		    padding-left: 3%;
+		    padding-right: 3%;
+		    font-size: 111%;
+		    text-align: justify;
+		}
+		.page_just_logout_success .done{
+		    padding-left: 42%;
+		    padding-top: 27%;
+		}
+
+		.page_just_logout_success .done_label{
+			padding-left: 39%;
+		    padding-top: 4%;
+		    font-size: 184%;
+		}
+		.page_just_logout_success .done_info{
+		   color: #888;
+		    font-style: italic;
+		    padding-top: 12%;
+		    padding-left: 3%;
+		    padding-right: 3%;
+		    font-size: 111%;
+		    text-align: justify;
+		}
+		.page_dodecryption .get_key_and_retore_login{
+			margin: auto;
+			width: 82%;
+			align-items: center;
+		}
+		.page_dodecryption .get_key_and_retore_login .label{
+			font-size: 134%;
+			text-align: center;
+		}
+		.page_dodecryption .password_set .password{
+		    width: 92.5%;
+		    padding-top: 6%;
+		    align-items: center;
+		    padding-left: 3.5%;
+		}
+		.page_dodecryption .password_set .password_input{
+		    border: 0;
+		    outline: 0;
+		    background: transparent;
+		    border-bottom: 1px solid #9E9E9E;
+		    width: 81%;
+		}
+		.page_dodecryption .password_set .ok{
+		    left: 1.5%;
+		    position: relative;
+		}
+		.page_dodecryption .password_set .ok_input{
+		    border: 2px solid #0a6175;
+		    background-color:  #0a6175;
+		    color: white;
+		    border-radius: 3px;
+		    cursor: pointer;
+		    width: 15%;
+		    font-size: 125%;
+		}
+		.page_dodecryption .password_set .eye_icon_visible, .page_dodecryption .password_set .eye_icon_hidden{
+		    z-index: 100;
+			position: absolute;
+			left: 67%;
+			padding-top: 0.3%;
+			top: 61%;
+		}
+		.page_dodecryption{
+			position: absolute;
+			top: 20%;
+		        width: 100%;
+		}
+		.page_dodecryption .or_just{
+		    padding-top: 23%;
+		    font-size: 11px;
+		    position: absolute;
+		    width: 95.5%;
+		}
+		.page_dodecryption .or_just span{
+		    left: 49%;
+		    position: absolute;
+		    top: 125.5%;
+			color: #888;
+		}
+		.page_dodecryption .clear_login{
+			position: absolute;
+		    border: 2px solid #0a6175;
+		    background: #0b6c82;
+		    color: white;
+		    border-radius: 3px;
+		    font-size: 140% !important;
+		    cursor: pointer;
+		    padding-left: 4%;
+		    padding-right: 4%;
+		    padding-top: 1%;
+		    padding-bottom: 1%;
+		}
+		.page_dodecryption .clear_login:hover ,.page_dodecryption .password_set .ok_input:hover, .page_dodecryption .confirmation .yes:hover{
+			background-color: 2px solid #055061;
+			border-color: #045669;
+		}
+		.page_dodecryption .confirmation .no:hover{
+		    border: 2px solid rgb(113, 105, 105);
+		    background: rgba(109, 101, 101, 0.9);
+		}
+		.page_dodecryption .password_set .eye_icon_visible:hover, .page_dodecryption .password_set .eye_icon_hidden:hover{
+			cursor: pointer
+		}
+		.page_dodecryption .left_hr{
+		    border-bottom: 1px solid rgba(0, 0, 0, 0.21);
+		    width: 48%;
+		    position: absolute;
+		    top: 134%;
+		}
+		.page_dodecryption .right_hr{
+		    border-bottom: 1px solid rgba(0, 0, 0, 0.21);
+		    width: 46.5%;
+		    position: absolute;
+		    top: 134%;
+		    left: 54%;
+		}
+		.page_dodecryption .before_confirmation{
+		   padding-top: 59%;
+		   padding-left: 17.5%;
+			position:absolute;
+		}
+		.page_dodecryption .confirmation{
+			padding-top: 59%;
+			font-size: 134%;
+			padding-left: 14%;
+			position:absolute;
+			left: 100%;
+		}
+		.page_dodecryption .confirmation .yes{
+		    border: 2px solid rgb(243, 60, 47);
+		    background: rgb(243, 60, 47);
+		    color: white;
+		    border-radius: 3px;
+		    cursor: pointer;
+		    width: 16%;
+		    font-size: 110%;
+			padding-right: 14%;
+		}
+		.page_dodecryption .confirmation .no{
+		    border: 2px solid rgb(140, 135, 135);
+		    background: rgba(134, 123, 122, 0.9);
+		    color: white;
+		    border-radius: 3px;
+		    cursor: pointer;
+		    width: 16%;
+		    font-size: 110%;
+		}
+		.popup_message{
+		    background: rgba(255, 237, 13, 0.65);
+		    border-radius: 2px;
+		    text-align: center;
+		    z-index: 200;
+		    position: absolute;
+		    left: 18%;
+		    padding-top: 0.5%;
+		    right: 18%;
+		    padding-bottom: 0.5%;
+			top: -18%;
+			display:none;
+		}
+	</style>
+	<script src="logic.js"></script>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+	<div class="popup_message" id="popup_message"></div>
+	<div class = "help" id="help_content">
+		<img src="help.png" height="20" width="20"/>
+	</div>
+	<div id="page_doencryption" class="page_doencryption" style="display:none">
+		<div class="save_login_details_and_logout">
+			<div class="label">
+				Save Login Details & Logout
+			</div>
+			<div class="password_set">
+				<div class="password">
+					<input class="password_input" id="doencryption_key" type="password" placeholder="Your password here..."></input>
+					<span class="eye_icon_visible" style="display:none"> <img src="eye_visible.png" height="18" width="18"/> </span>
+					<span class="eye_icon_hidden"> <img src="eye_hidden.png" height="18" width="18"/> </span>
+					<span class="ok">
+						<input id="doencryption_ok" class="ok_input" type="button" value="Ok"></input>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="or_just">
+			<div class="left_hr"></div>
+			<span>Or</span>
+			<div class="right_hr"></div>
+		</div>
+		<div class="logout_button">
+			<input id="logout_all" class="logout_all" type="button" value="Logout All Sites" ></input>
+		</div>
+	</div>
+	<div id="page_encryption_success" class="page_encryption_success" style="display:none">
+		<img src="icon.png" height="52" width="52" class="done"/>
+		<div class="done_label">Done</div>
+		<div class="done_info">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All your Site details have been encrypted and saved. Remember your password which you need for reverting the same. </div>
+	</div>
+	<div id="page_dodecryption" class="page_dodecryption" style="display:none">
+		<div class="get_key_and_retore_login">
+			<div class="label">
+				Enter your key to login back
+			</div>
+			<div class="password_set">
+				<div class="password">
+					<input class="password_input" id="dodecryption_key" type="password" placeholder="Your password here..."></input>
+					<span class="eye_icon_visible" style="display:none"> <img src="eye_visible.png" height="18" width="18"/> </span>
+					<span class="eye_icon_hidden"> <img src="eye_hidden.png" height="18" width="18"/> </span>
+					<span class="ok">
+						<input id="dodecryption_ok" class="ok_input" type="button" value="Ok"></input>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="or_just">
+			<div class="left_hr"></div>
+			<span>Or</span>
+			<div class="right_hr"></div>
+		</div>
+		<div>
+			<div id="before_confirmation" class="before_confirmation">
+				<input class="clear_login" type="button" value="Clear Saved Login details" id="clear_login"></input>
+			</div>
+			<div id="confirmation" class="confirmation">
+				<img src="icon.png" height="16" width="16">
+				<span style="cursor:default"> Are you Sure? </span>
+				<input type="button" value="Yes" class="yes" id="yes">
+				<input type="button" value="No" class="no" id="no">
+			</div>
+		</div>
+	</div>
+	<div id="page_decryption_success" class="page_decryption_success" style="display:none">
+		<img src="icon.png" height="52" width="52" class="done"/>
+		<div class="done_label">Done</div>
+		<div class="done_info">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You are now logged-in back. </div>
+	</div>
+	<div id="page_delete_storage_success" class="page_delete_storage_success" style="display:none">
+		<img src="icon.png" height="52" width="52" class="done"/>
+		<div class="done_label">Deleted</div>
+		<div class="done_info">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All sites login data stored with this extension is delete now. </div>
+	</div>
+	<div id="page_just_logout_success" class="page_just_logout_success" style="display:none">
+		<img src="icon.png" height="52" width="52" class="done"/>
+		<div class="done_label">Done</div>
+		<div class="done_info">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You are now logged out from all sites. </div>
+	</div>
+</body>
+</html>
