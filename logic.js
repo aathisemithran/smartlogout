@@ -42,11 +42,6 @@ sl = {
 			});
 		},
 		getAllCookiesFromBrowser : function(callback_func){
-			/* get cookies from browser and return */
-//			chrome.cookies.getAll({}, function callback(data){
-//				return data;
-//			});
-
 			chrome.cookies.getAll({}, callback_func);
 
 		},
@@ -76,10 +71,8 @@ sl = {
 			  var final_encrypted = "";
 
 			  for(var i=0; (i+1)<bit_array.length; i+=2){
-//			    final_encrypted += String.fromCharCode(parseInt("" + bit_array[i] + bit_array[i+1],2));
 				final_encrypted += (bit_array[i]+bit_array[i+1]);
 			  }
-//*				final_encrypted = final_encrypted.match(/.{1,16}/g);
 
 /////////////////
 			console.log("data coming out of encryption");
@@ -87,15 +80,6 @@ sl = {
 		},
 		setData : function(key_data, callback){
 			/* stores data with the given storage_key - clears any storage already there for that key. */
-//*			var data_to_store = {};
-//*			for(var key in key_data){
-//*				var value = key_data[key];
-//*				key = "sl_" + key;
-//*				data_to_store[key] = value;
-//*			}
-//*			chrome.storage.local.set(data_to_store, callback);
-			console.log("data passed into db add");
-			console.log(key_data);
 			var db = openDatabase('sl', '1.0', 'Smart logout DB', 2 * 1024 * 1024);
 			db.transaction(function (tx) {
 				tx.executeSql('CREATE TABLE IF NOT EXISTS SMARTLOGOUTDETAILS (id unique, detail)');
@@ -109,9 +93,6 @@ sl = {
 			});
 		},
 		deleteAllCookiesFromBrowser : function(cookies){
-			/* delete all cookies from browser */
-			//TODO: all cookies to be deleted are in sl.session_data.cookies. Need to delete the same.
-			console.log(cookies);
 			for(var i=0; i<cookies.length; i++){
 				var each_cookie = cookies[i];
 				var url = 'http';
@@ -125,23 +106,6 @@ sl = {
 			
 		},
 		getData : function(key, success_callback, fail_callback){
-			/* get data from storage */
-/*			if(typeof key == 'object'){
-				for(var i=0; i< key.length; i++){
-					key[i] = "sl_" + key[i];
-				}
-			}
-			else{
-				key = "sl_" + key;
-			}
-			chrome.storage.local.get(key, function(data){
-				for(var key in data){
-					data[(key.replace("sl_",""))] = data[key];
-					delete data[key];
-				}
-				callback(data);
-			});
-*/
 			var data_for_callback = {};
 			var key_arr = [];
 			if(typeof key != 'object'){
@@ -373,11 +337,28 @@ sl = {
 				jQuery("#confirmation").animate({left:'0%'},200);
 			});
 		},
+		showLogoutConfirmation : function(){
+			jQuery("#logout_button").animate({left:'-100%'},100, function x(){
+				jQuery("#logout_button").hide();
+				jQuery("#logout_confirmation").show();
+				jQuery("#logout_confirmation").animate({left:'0%'},200);
+			});		
+		},
 		hideDeleteConfirmation : function(){
 			jQuery("#confirmation").animate({left:'100%'},100,function x(){
 				jQuery("#before_confirmation").show();
 				jQuery("#confirmation").hide();
 				jQuery("#before_confirmation").animate({left:'0%'},200);
+				//jQuery(".help").fadeTo("fast",1);
+				//jQuery(".page_dodecryption .or_just").fadeTo("fast",1);
+				//jQuery(".get_key_and_retore_login").fadeTo("fast",1);
+			});
+		},
+		hideLogoutDeleteConfirmation : function(){
+			jQuery("#logout_confirmation").animate({left:'100%'},100,function x(){
+				jQuery("#logout_button").show();
+				jQuery("#logout_confirmation").hide();
+				jQuery("#logout_button").animate({left:'0%'},200);
 				//jQuery(".help").fadeTo("fast",1);
 				//jQuery(".page_dodecryption .or_just").fadeTo("fast",1);
 				//jQuery(".get_key_and_retore_login").fadeTo("fast",1);
@@ -415,7 +396,9 @@ window.onload = function(){
 	jQuery("#confirmation #yes").click(function(){ sl.action.clearStorage(); });
 	jQuery("#dodecryption_ok").click(function(){sl.action.decryptAndLogin();});
 	jQuery("#logout_all").click(function(){sl.action.showLogoutConfirmation();});
-	//sl.action.logoutAllSites();});
+	jQuery("#logout_confirmation #logout_yes").click(function(){ sl.action.logoutAllSites(); });
+	jQuery("#logout_confirmation #logout_no").click(function(){ sl.action.hideLogoutDeleteConfirmation(); });
+
 	jQuery(".eye_icon_visible").click(function(){sl.action.toggleEye();});
 	jQuery(".eye_icon_hidden").click(function(){sl.action.toggleEye();});
 	jQuery("#help_content").click(function(){chrome.tabs.create({ url: "help_doc.html" });});

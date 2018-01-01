@@ -16,7 +16,6 @@
 			align-items: center;
 		}
 		.page_doencryption .save_login_details_and_logout .label{
-			font-size: 134%;
 			text-align: center;
 		}
 		.page_doencryption .password_set .password{
@@ -42,7 +41,6 @@
 		    color: white;
 		    border-radius: 3px;
 		    cursor: pointer;
-		    width: 13%;
 		    font-size: 125%;
 		}
 		.page_doencryption .password_set .eye_icon_visible, .page_doencryption .password_set .eye_icon_hidden{
@@ -50,7 +48,6 @@
 		    position: absolute;
 		    left: 68%;
 		    padding-top: 0.3%;
-		    top: 12%;
 		}
 		.page_doencryption{
 			position: absolute;
@@ -103,7 +100,10 @@
 		}
 		.page_doencryption .logout_button{
 		    padding-top: 59%;
-		    padding-left: 26%;
+		    position: absolute;
+    			text-align: center;
+    			margin: auto;
+    			width: 100%;
 		}
 		.page_encryption_success .done{
 		    padding-left: 42%;
@@ -184,7 +184,6 @@
 			align-items: center;
 		}
 		.page_dodecryption .get_key_and_retore_login .label{
-			font-size: 134%;
 			text-align: center;
 		}
 		.page_dodecryption .password_set .password{
@@ -206,12 +205,15 @@
 		}
 		.page_dodecryption .password_set .ok_input{
 		    border: 2px solid #0a6175;
-		    background-color:  #0a6175;
+		    background-color:  #0b6c82;
 		    color: white;
 		    border-radius: 3px;
 		    cursor: pointer;
-		    width: 15%;
 		    font-size: 125%;
+		}
+		.page_dodecryption .password_set .ok_input:hover{
+			border-color: 2px solid #055061;
+			background-color: #045669;
 		}
 		.page_dodecryption .password_set .eye_icon_visible, .page_dodecryption .password_set .eye_icon_hidden{
 		    z-index: 100;
@@ -238,21 +240,16 @@
 			color: #888;
 		}
 		.page_dodecryption .clear_login{
-			position: absolute;
 		    border: 2px solid #0a6175;
 		    background: #0b6c82;
 		    color: white;
 		    border-radius: 3px;
 		    font-size: 140% !important;
 		    cursor: pointer;
-		    padding-left: 4%;
-		    padding-right: 4%;
-		    padding-top: 1%;
-		    padding-bottom: 1%;
 		}
 		.page_dodecryption .clear_login:hover ,.page_dodecryption .password_set .ok_input:hover, .page_dodecryption .confirmation .yes:hover{
-			background-color: 2px solid #055061;
-			border-color: #045669;
+			background: #055061;
+			border: 2px solid #045669;
 		}
 		.page_dodecryption .confirmation .no:hover{
 		    border: 2px solid rgb(113, 105, 105);
@@ -276,25 +273,24 @@
 		}
 		.page_dodecryption .before_confirmation{
 		   padding-top: 59%;
-		   padding-left: 17.5%;
-			position:absolute;
+     		   position:absolute;
+		    width: 100%;
+    		   text-align: center;
 		}
 		.page_dodecryption .confirmation{
 			padding-top: 59%;
-			font-size: 134%;
-			padding-left: 14%;
-			position:absolute;
-			left: 100%;
+		    position: absolute;
+		    left: 100%;
+		    text-align: center;
+		    width: 100%;
 		}
 		.page_dodecryption .confirmation .yes{
-		    border: 2px solid rgb(243, 60, 47);
-		    background: rgb(243, 60, 47);
+			border: 2px solid #0a6175;
+		    background-color: #0b6c82;
 		    color: white;
 		    border-radius: 3px;
 		    cursor: pointer;
-		    width: 16%;
-		    font-size: 110%;
-			padding-right: 14%;
+		    font-size: 125%;
 		}
 		.page_dodecryption .confirmation .no{
 		    border: 2px solid rgb(140, 135, 135);
@@ -302,8 +298,7 @@
 		    color: white;
 		    border-radius: 3px;
 		    cursor: pointer;
-		    width: 16%;
-		    font-size: 110%;
+		    font-size: 125%;
 		}
 		.popup_message{
 		    background: rgba(255, 237, 13, 0.65);
@@ -317,6 +312,44 @@
 		    padding-bottom: 0.5%;
 			top: -18%;
 			display:none;
+		}
+		.page_encryption .logout_confirmation .logout_yes:hover{
+			background-color: 2px solid #055061;
+			border-color: #045669;
+		}
+		.page_encryption .logout_confirmation .logout_no:hover{
+		    border: 2px solid rgb(113, 105, 105);
+		    background: rgba(109, 101, 101, 0.9);
+		}
+		.page_encryption .logout_button{
+		   padding-top: 59%;
+		   padding-left: 17.5%;
+			position:absolute;
+		}
+		.page_doencryption .logout_confirmation{
+		        padding-top: 59%;
+		    left: 100%;
+		    text-align: center;
+		    margin: auto;
+		    width: 100%;
+		    position: absolute;
+		}
+		.page_doencryption .logout_confirmation .logout_yes{
+			border: 2px solid #0a6175;
+		    background-color: #0b6c82;
+		    color: white;
+		    border-radius: 3px;
+		    cursor: pointer;
+		    font-size: 125%;
+		}
+		.page_doencryption .logout_confirmation .logout_no{
+		    border: 2px solid rgb(140, 135, 135);
+		    background: rgba(134, 123, 122, 0.9);
+		    color: white;
+		    border-radius: 3px;
+		    cursor: pointer;
+		    width: 16%;
+		    font-size: 125%;
 		}
 	</style>
 	<script src="logic.js"></script>
@@ -348,8 +381,16 @@
 			<span>Or</span>
 			<div class="right_hr"></div>
 		</div>
-		<div class="logout_button">
-			<input id="logout_all" class="logout_all" type="button" value="Logout All Sites" ></input>
+		<div>
+			<div id="logout_button" class="logout_button">
+				<input id="logout_all" class="logout_all" type="button" value="Logout All Sites" ></input>
+			</div>
+			<div id="logout_confirmation" class="logout_confirmation">
+				<img src="icon.png" height="16" width="16">
+				<span style="cursor:default"> Are you sure? </span>
+				<input type="button" value="Yes" class="logout_yes" id="logout_yes">
+				<input type="button" value="No" class="logout_no" id="logout_no">
+			</div>
 		</div>
 	</div>
 	<div id="page_encryption_success" class="page_encryption_success" style="display:none">
